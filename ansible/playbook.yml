@@ -1,0 +1,13 @@
+---
+- hosts: all
+  roles:
+    - docker
+
+- hosts: monitoramento
+  roles:
+    - execute_container_monitoramento
+
+
+- hosts: sample
+  roles:
+    - execute_container_sample

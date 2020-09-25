@@ -1,0 +1,25 @@
+---
+    - name: Copiando o diretorio do projeto
+      copy:
+       src: files/tomcat
+       dest: /home/ubuntu/
+      become: true
+
+    #- name: Copiando o diretorio do docker
+    #  copy:
+    ##   src: files/docker/
+     #  dest: /etc/docker
+     # become: true  
+
+    - name: Execute docker
+      shell: docker-compose up -d
+      args:
+        chdir: /home/ubuntu/tomcat
+      become: true
+
+    - name: Copiando projeto para dentro do docker
+      shell: docker cp sample.war sample:/usr/local/tomcat/webapps
+      args:
+        chdir: /home/ubuntu/tomcat
+      become: true   
+

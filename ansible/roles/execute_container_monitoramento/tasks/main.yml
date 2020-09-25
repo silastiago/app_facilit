@@ -1,0 +1,25 @@
+---
+    - name: Copiando o diretorio do projeto
+      copy:
+       src: files/prometheus
+       dest: /home/ubuntu/
+      become: true
+
+    - name: Execute chown
+      shell: chown nobody. -R /home/ubuntu/prometheus
+      args:
+        chdir: /home/ubuntu/prometheus
+      become: true  
+
+    - name: Execute docker-compose
+      shell: docker-compose up -d
+      args:
+        chdir: /home/ubuntu/prometheus
+      become: true
+
+    
+
+      
+
+
+
