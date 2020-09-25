@@ -21,10 +21,9 @@ resource "aws_instance" "monitoramento" {
     Name = "monitoramento"
   }
   vpc_security_group_ids = ["${aws_security_group.acesso-ssh.id}", 
-                            "${aws_security_group.acesso-grafana.id}",
                             "${aws_security_group.acesso-web.id}",
-                            "${aws_security_group.acesso-https.id}",
-                            "${aws_security_group.acesso-prometheus.id}"]
+                            "${aws_security_group.acesso-prometheus.id}"
+                            ]
 }
 
 resource "aws_instance" "app" {
@@ -37,8 +36,6 @@ resource "aws_instance" "app" {
   }
   vpc_security_group_ids = ["${aws_security_group.acesso-ssh.id}", 
                             "${aws_security_group.acesso-sample.id}",
-                            "${aws_security_group.acesso-web.id}",
-                            "${aws_security_group.acesso-https.id}",
-                            "${aws_security_group.acesso-docker.id}"]
+                            "${aws_security_group.acesso-web.id}"]
 }
 
