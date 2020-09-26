@@ -93,7 +93,7 @@ resource "aws_security_group" "acesso-web" {
 
     # Please restrict your ingress to only necessary IPs and ports.
     # Opening to 0.0.0.0/0 can lead to security vulnerabilities.
-    cidr_blocks = "${var.cdirs_acesso_remoto}"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
 ingress {
@@ -103,7 +103,7 @@ ingress {
 
     # Please restrict your ingress to only necessary IPs and ports.
     # Opening to 0.0.0.0/0 can lead to security vulnerabilities.
-    cidr_blocks = "${var.cdirs_acesso_remoto}"
+    cidr_blocks = ["0.0.0.0/0"]
   }  
 
 egress {

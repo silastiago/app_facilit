@@ -1,25 +1,44 @@
 ---
     - name: Copiando o diretorio do projeto
       copy:
-       src: files/tomcat
+       src: files/tomcat/
        dest: /home/ubuntu/
       become: true
-
-    #- name: Copiando o diretorio do docker
-    #  copy:
-    ##   src: files/docker/
-     #  dest: /etc/docker
-     # become: true  
 
     - name: Execute docker
       shell: docker-compose up -d
       args:
-        chdir: /home/ubuntu/tomcat
+        chdir: /home/ubuntu/
       become: true
 
-    - name: Copiando projeto para dentro do docker
-      shell: docker cp sample.war sample:/usr/local/tomcat/webapps
+    - name:  Copiando projeto para dentro do docker
+      shell: |
+        docker cp sample.war sample:/usr/local/tomcat/webapps
+        docker cp metrics.war sample:/usr/local/tomcat/webapps
       args:
-        chdir: /home/ubuntu/tomcat
-      become: true   
+        chdir: /home/ubuntu/projetos/
+      become: true
+
+    - name: Copiando lib para dentro do docker
+      shell: |
+        docker cp simpleclient-0.9.0.jar sample:/usr/local/tomcat/lib
+        docker cp simpleclient_common-0.9.0.jar sample:/usr/local/tomcat/lib
+        docker cp simpleclient_hotspot-0.9.0.jar sample:/usr/local/tomcat/lib
+        docker cp simpleclient_servlet-0.9.0.jar sample:/usr/local/tomcat/lib
+        docker cp tomcat_exporter_client-0.0.13.jar sample:/usr/local/tomcat/lib
+      args:
+        chdir: /home/ubuntu/libs/
+      become: true
+
+    - name: Start service httpd, if not started
+      service:
+        name: docker
+        state: restarted
+      become: true  
+
+
+
+
+
+    
 
