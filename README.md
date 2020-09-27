@@ -34,7 +34,7 @@ Após criar a credencial baixe o projeto git, acesse a pasta terraform e execute
 
 	terraform apply
 
-Observação não mostraremos como instalar o terraform nesse passo a passo, visto que quem estará vendo esse passo a passo deve ter conhecimento previo de como fazer, porém que não tem esse conhecimento veja o link da hashicorp ensinando como fazer.
+Observação não mostraremos como instalar o terraform nesse passo a passo, visto que quem estará vendo esse passo a passo deve ter conhecimento previo de como fazer, porém quem não tem esse conhecimento veja o link da hashicorp ensinando como fazer.
 
 	https://learn.hashicorp.com/tutorials/terraform/install-cli
 
