@@ -27,7 +27,7 @@ resource "aws_instance" "monitoramento" {
 }
 
 resource "aws_instance" "app" {
-  count = 1
+  count = 2
   ami = "ami-07efac79022b86107"
   instance_type = "t2.micro"
   key_name = "servidor"

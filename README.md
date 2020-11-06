@@ -38,15 +38,11 @@ Observação não mostraremos como instalar o terraform nesse passo a passo, vis
 
 	https://learn.hashicorp.com/tutorials/terraform/install-cli
 
-Após criar as instancias na AWS pelo terraform, copie os dns das instancias que é retornado pelo terraform, pois não utilizamos inventario dinamico no ansible nesse projeto e essa parte de cadastrar os hosts no inventario do  ansible será feito manual mesmo. 
+Após criar as instancias na AWS pelo terraform, execute o playbook com o comando:
 
-Após inserir no inventario do ansible os dados das instancias criadas execute o playbook com o comando:
-
-	ansible-playbook -i hosts playbook.yml	
+	ansible-playbook -i inventario playbook.yml	
 	
 Após a execução do playbook o ansible instalou, docker, e executou alguns docker-composes com prometheus, grafana, cadvisor e também tomcat.
-
-
 
 ### Link das aplicações ###
  - **Grafana**

@@ -1,0 +1,7 @@
+[monitoramento]
+${monitoramento-dns} ansible_user=ubuntu ansible_ssh_private_key_file=/home/silas.medeiros/.ssh/servidor.pem
+
+[sample]
+%{ for index, dns in app-dns ~}
+${dns} ansible_user=ubuntu ansible_ssh_private_key_file=/home/silas.medeiros/.ssh/servidor.pem
+%{ endfor ~}

@@ -1,14 +1,10 @@
-
-output "public_dns-monitoramento" {
-  value = "${aws_instance.monitoramento[0].public_dns}"
-}
-
-output "public_dns_app" {
-  value = "${aws_instance.app[0].public_dns}"
-}
-output "private_ip_app" {
-  value = "${aws_instance.app[0].private_ip}"
-}
-output "public_ip_app" {
-  value = "${aws_instance.app[0].public_ip}"
+### The Ansible inventory file
+resource "local_file" "AnsibleInventory" {
+ content = templatefile("../ansible/inventory.tmpl",
+ {
+  monitoramento-dns = aws_instance.monitoramento[0].public_dns,
+  app-dns = aws_instance.app.*.public_dns
+ }
+ )
+ filename = "../ansible/inventory"
 }
