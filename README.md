@@ -34,29 +34,12 @@ Após criar a credencial baixe o projeto git, acesse a pasta terraform e execute
 
 	terraform apply
 
+O terraform se encarregará de criar infraestrutura e executar o playbook do ansible.
+
 Observação não mostraremos como instalar o terraform nesse passo a passo, visto que quem estará vendo esse passo a passo deve ter conhecimento previo de como fazer, porém quem não tem esse conhecimento veja o link da hashicorp ensinando como fazer.
 
-	https://learn.hashicorp.com/tutorials/terraform/install-cli
+        https://learn.hashicorp.com/tutorials/terraform/install-cli
+        https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 
-Após criar as instancias na AWS pelo terraform, execute o playbook com o comando:
 
-	ansible-playbook -i inventario playbook.yml	
-	
 Após a execução do playbook o ansible instalou, docker, e executou alguns docker-composes com prometheus, grafana, cadvisor e também tomcat.
-
-### Link das aplicações ###
- - **Grafana**
-   - http://ec2-3-21-125-176.us-east-2.compute.amazonaws.com:3000/
-   - Usuario: teste
-   - Senha: teste
-
- - **Prometheus**
-   - http://ec2-3-21-125-176.us-east-2.compute.amazonaws.com:9090/
- 
- - **Sample**
-   - http://ec2-18-188-15-100.us-east-2.compute.amazonaws.com/sample
-   - http://ec2-18-188-15-100.us-east-2.compute.amazonaws.com/metrics
- 
- - **Cadvisor**
-   - http://ec2-18-188-15-100.us-east-2.compute.amazonaws.com:8080/metrics
-  

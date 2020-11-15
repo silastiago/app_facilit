@@ -39,3 +39,16 @@ resource "aws_instance" "app" {
                             "${aws_security_group.acesso-web.id}"]
 }
 
+resource "null_resource" "ansible" {
+
+  triggers = {
+    cluster_instance_ids = "${join(",", local_file.AnsibleInventory.*.id)}"
+  }
+
+  provisioner "local-exec" {
+    command = "sleep 20;ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ../ansible/inventory ../ansible/playbook.yml"
+    }
+
+}
+
+
