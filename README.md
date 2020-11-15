@@ -41,5 +41,4 @@ Observação não mostraremos como instalar o terraform nesse passo a passo, vis
         https://learn.hashicorp.com/tutorials/terraform/install-cli
         https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 
-
 Após a execução do playbook o ansible instalou, docker, e executou alguns docker-composes com prometheus, grafana, cadvisor e também tomcat.
